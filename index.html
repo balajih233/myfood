@@ -7,22 +7,44 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="header">
-        <div class="logo-title">
-            <img src="images/food-logo.png" alt="Foodie Logo" class="hlogo">
-            <h1>Foodie</h1>
-        </div>
-        <div class="search-container">
-            <input type="text" placeholder="Order your Favourite food..." class="search-bar">
-            <button class="search-button">Search</button>
-            <button class="sign">Signin</button>
+   <div class="header">
+    <div class="logo-title">
+        <img src="images/food-logo.png" alt="Foodie Logo" class="hlogo">
+        <h1>Foodie</h1>
+    </div>
+    <div class="search-container">
+        <input type="text" placeholder="Order your Favourite food..." class="search-bar">
+        <button class="search-button">Search</button>
+        <button class="sign">Signin</button>
+        <!-- Add cart button and counter -->
+        <div class="cart-container">
+            <button class="cart-btn">
+                🛒 Cart <span class="cart-count">0</span>
+            </button>
+            <button class="clear-cart-btn">Clear Cart</button>
         </div>
     </div>
+</div>
+
+<!-- Add cart modal -->
+<div class="cart-modal" id="cartModal">
+    <div class="cart-content">
+        <span class="close-cart">&times;</span>
+        <h2>Your Cart</h2>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be added here dynamically -->
+        </div>
+        <div class="cart-total">
+            <h3>Total: ₹<span id="cartTotal">0</span></h3>
+            <button class="checkout-btn">Checkout</button>
+        </div>
+    </div>
+</div>
     <div class="food-section">
         <div class="food-grid">
             <div class="food-card">
                 <img src="images/biryani.webp" alt="Biryani">
-                <p>Biryani</p>
+                <p id="bir">Biryani</p>
             </div>
             <div class="food-card">
                 <img src="images/fried-rice.jpg" alt="Fried Rice">
@@ -66,7 +88,7 @@
             <h2>Delicious Meals Just a Click Away!</h2>
             <p>Order your favorite dishes from a wide variety of cuisines. Hot, fresh, and delivered right to your doorstep. Don't miss out on amazing offers and combos!</p>
             <p>Get 50% off on your first order....!</p>
-            <button class="order-btn">Order Now</button>
+            <button class="order-btn" onclick="clickMe()">Order Now</button>
         </div>
     </div>
     <div class="food-list-section">
@@ -1034,8 +1056,147 @@
                     </div>
                 </div>
             </div>
- 
+
+            <div class="food-card-detailed">
+                <img src="images/jagery-jalebi.jpg" alt="Jagery-Jalebi">
+                <div class="food-info">
+                    <div class="food-title">
+                        <h4>Jagery-Jalebi</h4>
+                        <span class="food-type veg"></span>
+                    </div>
+                    <div class="food-meta">
+                        <span class="rating">⭐ 4.6</span>
+                        <span class="price">₹50</span>
+                    </div>
+                    <div class="food-extra">
+                        <span class="order-size">Pieces</span>
+                        <span class="weight">6</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card-detailed">
+                <img src="images/sugar-jalebi.jpg" alt="Sugar-Jalebi">
+                <div class="food-info">
+                    <div class="food-title">
+                        <h4>Sugar-Jalebi</h4>
+                        <span class="food-type veg"></span>
+                    </div>
+                    <div class="food-meta">
+                        <span class="rating">⭐ 4.4</span>
+                        <span class="price">₹60</span>
+                    </div>
+                    <div class="food-extra">
+                        <span class="order-size">Pieces</span>
+                        <span class="weight">6</span>
+                    </div>
+                </div>
+            </div>
+            <div class="food-card-detailed">
+                <img src="images/gulab-jamun.webp" alt="Gulab-Jamun">
+                <div class="food-info">
+                    <div class="food-title">
+                        <h4>Gulab-Jamun</h4>
+                        <span class="food-type veg"></span>
+                    </div>
+                    <div class="food-meta">
+                        <span class="rating">⭐ 4.4</span>
+                        <span class="price">₹60</span>
+                    </div>
+                    <div class="food-extra">
+                        <span class="order-size">Pieces</span>
+                        <span class="weight">6</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="food-card-detailed">
+                <img src="images/rasgulla.webp" alt="Rasgulla">
+                <div class="food-info">
+                    <div class="food-title">
+                        <h4>Rasgulla</h4>
+                        <span class="food-type veg"></span>
+                    </div>
+                    <div class="food-meta">
+                        <span class="rating">⭐ 4.5</span>
+                        <span class="price">₹70</span>
+                    </div>
+                    <div class="food-extra">
+                        <span class="order-size">Pieces</span>
+                        <span class="weight">6</span>
+                    </div>
+                </div>
+            </div>
+            <div class="food-card-detailed">
+                <img src="images/Halwa.jpg" alt="Halwa">
+                <div class="food-info">
+                    <div class="food-title">
+                        <h4>Halwa</h4>
+                        <span class="food-type veg"></span>
+                    </div>
+                    <div class="food-meta">
+                        <span class="rating">⭐ 4.7</span>
+                        <span class="price">₹80</span>
+                    </div>
+                    <div class="food-extra">
+                        <span class="order-size">Content</span>
+                        <span class="weight">250g</span>
+                    </div>
+                </div>
+            </div>
+            <div class="food-card-detailed">
+                <img src="images/mysore-pak.jpeg" alt="Mysore-pak">
+                <div class="food-info">
+                    <div class="food-title">
+                        <h4>Mysore-pak</h4>
+                        <span class="food-type veg"></span>
+                    </div>
+                    <div class="food-meta">
+                        <span class="rating">⭐ 4.7</span>
+                        <span class="price">₹50</span>
+                    </div>
+                    <div class="food-extra">
+                        <span class="order-size">Pieces</span>
+                        <span class="weight">6</span>
+                    </div>
+                </div>
+            </div>
+            <div class="food-card-detailed">
+                <img src="images/kalakand.webp" alt="Kalakand">
+                <div class="food-info">
+                    <div class="food-title">
+                        <h4>Kalakand</h4>
+                        <span class="food-type veg"></span>
+                    </div>
+                    <div class="food-meta">
+                        <span class="rating">⭐ 4.7</span>
+                        <span class="price">₹80</span>
+                    </div>
+                    <div class="food-extra">
+                        <span class="order-size">Pieces</span>
+                        <span class="weight">6</span>
+                    </div>
+                </div>
+            </div>
+            <div class="food-card-detailed">
+                <img src="images/badusha.jpg" alt="Badusha">
+                <div class="food-info">
+                    <div class="food-title">
+                        <h4>Badusha</h4>
+                        <span class="food-type veg"></span>
+                    </div>
+                    <div class="food-meta">
+                        <span class="rating">⭐ 4.7</span>
+                        <span class="price">₹120</span>
+                    </div>
+                    <div class="food-extra">
+                        <span class="order-size">Pieces</span>
+                        <span class="weight">6</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
